@@ -1,0 +1,10 @@
+.Avatar {
+    padding : 20px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.name{
+    font-size: 1rem;
+    font-weight:   bold ;
+}
