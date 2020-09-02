@@ -1,9 +1,13 @@
 import React from 'react';
+import LocationLogo from '../../../svg/location.svg';
+import '../userProfileItems/index.css';
 
 function UserProfileItems(props) {
     return (
         <div>
-            <span>{props.user.location}&nbsp;</span>
+            <span>
+                <img className='locationImg' src={LocationLogo} />
+                {props.user.location}&nbsp;</span>
             {props.user.webSite
                 ?
                 <span>{props.user.webSite}&nbsp;</span>

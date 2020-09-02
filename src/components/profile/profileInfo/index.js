@@ -21,6 +21,7 @@ function ProfileInfo() {
         }
     );
 
+    let tempWallpaper = wallpaper;
 
     let tempUser = {
         avatar: user.avatar,
@@ -43,7 +44,13 @@ function ProfileInfo() {
     const save = () => {
         setIsShowModal(false);
         setUser(tempUser);
+        setWallpaper(tempWallpaper);
     };
+
+    const closeModal = () => {
+        setIsShowModal(false);
+        tempUser = null;
+    }
 
     const handleInputChange = e => {
         const target = e.target.value;
@@ -55,6 +62,13 @@ function ProfileInfo() {
         if (e.target.files && e.target.files[0]) {
             let img = e.target.files[0];
             tempUser.avatar = URL.createObjectURL(img);
+        }
+    };
+
+    const uploadWallPaper = e => {
+        if (e.target.files && e.target.files[0]) {
+            let img = e.target.files[0];
+            tempWallpaper = URL.createObjectURL(img);
         }
     };
 
@@ -71,10 +85,12 @@ function ProfileInfo() {
             <button className="editUserInfo" onClick={showModal}>Изменить профиль</button>
             {isShowModal ?
                 <EditProfileModal isShow={isShowModal}
+                    handleClose={closeModal}
                     handleSave={save}
                     userInfo={user}
                     handleInputChange={handleInputChange}
-                    uploadProfileImage={uploadProfileImage} />
+                    uploadProfileImage={uploadProfileImage}
+                    uploadWallpaper={uploadWallPaper} />
                 : null}
         </div>
     );
