@@ -1,4 +1,5 @@
 import React from 'react';
+import '../wallpaper/index.css';
 
 function Wallpaper(props) {
     return (

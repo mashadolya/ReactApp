@@ -3,7 +3,7 @@ import Avatar from '../avatar';
 import UserProfileItems from '../userProfileItems';
 import EditProfileModal from '../editProfileModal';
 import Wallpaper from '../wallpaper';
-import '../profileInfo'
+import '../profileInfo/index.css';
 
 function ProfileInfo() {
     const [wallpaper, setWallpaper] = useState(
@@ -74,7 +74,7 @@ function ProfileInfo() {
 
 
     return (
-        <div>
+        <div id='profilePage'>
             <Wallpaper wallpaper={wallpaper} />
             <Avatar user={user} />
             <div className='name'>{user.name}</div>

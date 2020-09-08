@@ -1,6 +1,8 @@
 import React from 'react';
-import TweetList from './components/tweetList'
-import ProfileInfo from './components/profile/profileInfo'
+import NavigationBar from './components/navigationBar';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ProfileInfo from './components/profile/profileInfo';
+import TweetList from './components/tweetList';
 
 function App() {
   return (
@@ -8,8 +10,18 @@ function App() {
       <header className="App-header">
       </header>
       <div>
-        <ProfileInfo />
-
+        <BrowserRouter>
+          <NavigationBar />
+          <Switch>
+            <Route path="/profile" component={ProfileInfo} />
+            <Route path="/explore" component={null} />
+            <Route path="/notifications" component={null} />
+            <Route path="/messages" component={null} />
+            <Route path="/bookmarks" component={null} />
+            <Route path="/lists" component={null} />
+            <Route path="/home" component={TweetList} />
+          </Switch>
+        </BrowserRouter>
       </div>
     </div>
   );

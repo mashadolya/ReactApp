@@ -1,3 +1,8 @@
 .editProfileInfo{
     border-radius: 15px;
 }
+
+#profilePage{
+    width: 50%;
+   margin: 0 auto;
+}

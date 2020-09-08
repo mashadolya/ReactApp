@@ -1,6 +1,7 @@
 import React from 'react';
-import Tweet from '../tweet'
+import Tweet from '../tweet';
 import NewTweet from '../newTweet';
+import '../tweetList/index.css';
 
 class TweetList extends React.Component {
 
