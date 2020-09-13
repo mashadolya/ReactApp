@@ -1,13 +1,15 @@
-import React from 'react';
-import NavigationBar from './components/navigationBar';
+import React from "react";
+import NavigationBar from "./components/navigationBar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ProfileInfo from './components/profile/profileInfo';
-import TweetList from './components/tweetList';
+import ProfileInfo from "./components/profile/profileInfo";
+import TweetList from "./components/tweetList";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {/* Нейминги для вёрстки с маленькой буквы и через тире app-header. Да и тег
+        хедер тебе не нужен, используй обычные дивы */}
       </header>
       <div>
         <BrowserRouter>
