@@ -1,14 +1,14 @@
-import React from 'react';
-import NavigationBar from './components/navigationBar';
+import React from "react";
+import NavigationBar from "./components/navigationBar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ProfileInfo from './components/profile/profileInfo';
-import TweetList from './components/tweetList';
+import ProfileInfo from "./components/profile/profileInfo";
+import TweetList from "./components/tweetList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
+    <div className="app">
+      <div className="app-header">
+      </div>
       <div>
         <BrowserRouter>
           <NavigationBar />

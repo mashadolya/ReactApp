@@ -1,15 +1,18 @@
-import React from 'react';
-import '../navigationButton/index.css';
+import React from "react";
+import "./index.css";
 
-function NavigationButton({ buttonName, buttonImage }) {
+const NavigationButton = ({ buttonName, buttonImage }) => {
 
-    return (
-        <div className='navigationButton'>
-            <img className='btnImg' src={buttonImage} />
-            <button >{buttonName}</button>
-        </div>
-    );
-
+  return (
+    <div className="navigation-button">
+      {buttonImage ?
+        <img className="btn-img"
+          src={buttonImage} />
+        : null
+      }
+      <button>{buttonName}</button>
+    </div>
+  );
 }
 
 export default NavigationButton;

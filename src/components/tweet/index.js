@@ -1,23 +1,22 @@
-import React from 'react';
-import '../tweet/index.css';
+import React from "react";
+import "./index.css";
 
-class Tweet extends React.Component {
+const Tweet = (props) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
+  const tweet = props.tweet;
+  const deleteTweet = props.deleteTweet;
 
-        }
-    }
-
-    render() {
-        return (
-            <div className='tweet'>
-                <div className='account-name'>M_Dolya</div>
-                <div>{this.props.tweet.text}</div>
-                <button className='delete-tweet-btn' onClick={() => { this.props.deleteTweet(this.props.tweet) }}>Delete Tweet</button>
-            </div>
-        )
-    }
+  return (
+    <div className="tweet">
+      <div className="account-name">M_Dolya</div>
+      <div>{tweet.text}</div>
+      <button
+        className="delete-tweet-btn"
+        onClick={deleteTweet(tweet)
+        }      >
+        Delete Tweet
+        </button>
+    </div>
+  );
 }
 export default Tweet;

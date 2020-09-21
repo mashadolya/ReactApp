@@ -1,13 +1,12 @@
-import React from 'react';
-import '../avatar/index.css'
+import React from "react";
+import "../avatar/index.css";
 
-function Avatar(props) {
-    return (
-        <img className="Avatar"
-            src={props.user.avatar}
-            alt={props.user.name}
-        />
-    );
+const Avatar = (props) => {
+  const { user } = props;
+
+  return (
+    <img className="avatar" src={user.avatar} alt={user.name} />
+  );
 }
 
 export default Avatar;

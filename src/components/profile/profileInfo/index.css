@@ -2,7 +2,12 @@
     border-radius: 15px;
 }
 
-#profilePage{
-    width: 50%;
+#profile-view{
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+   border-bottom: 1px solid black;
+   width: 50%;
    margin: 0 auto;
+   display: block;
+  
 }
