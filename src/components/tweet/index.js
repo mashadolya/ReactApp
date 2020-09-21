@@ -1,30 +1,22 @@
 import React from "react";
-import "../tweet/index.css";
+import "./index.css";
 
-//Тоже самое, функциональный компонент тут
+const Tweet = (props) => {
 
-class Tweet extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  const tweet = props.tweet;
+  const deleteTweet = props.deleteTweet;
 
-  render() {
-    return (
-      <div className="tweet">
-        <div className="account-name">M_Dolya</div>
-        <div>{this.props.tweet.text}</div>
-        <button
-          className="delete-tweet-btn"
-          onClick={() => {
-            this.props.deleteTweet(this.props.tweet);
-          }}
-          //   () => {this.props.deleteTweet(this.props.tweet);} не пиши так. Анонимная функция будет создаваться при каждом перерендере. Можно просто this.props.deleteTweet(this.props.tweet)
-        >
-          Delete Tweet
+  return (
+    <div className="tweet">
+      <div className="account-name">M_Dolya</div>
+      <div>{tweet.text}</div>
+      <button
+        className="delete-tweet-btn"
+        onClick={deleteTweet(tweet)
+        }      >
+        Delete Tweet
         </button>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 export default Tweet;

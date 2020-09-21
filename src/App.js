@@ -6,11 +6,9 @@ import TweetList from "./components/tweetList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* Нейминги для вёрстки с маленькой буквы и через тире app-header. Да и тег
-        хедер тебе не нужен, используй обычные дивы */}
-      </header>
+    <div className="app">
+      <div className="app-header">
+      </div>
       <div>
         <BrowserRouter>
           <NavigationBar />

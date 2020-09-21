@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Avatar from "../avatar";
 import UserProfileItems from "../userProfileItems";
 import EditProfileModal from "../editProfileModal";
 import Wallpaper from "../wallpaper";
+import getFile from '../../../utils/ElementUtils';
+import ProfileHeader from "../../profile/profileHeader";
 import "../profileInfo/index.css";
 
 function ProfileInfo() {
@@ -59,22 +61,19 @@ function ProfileInfo() {
   };
 
   const uploadProfileImage = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      let img = e.target.files[0];
-      tempUser.avatar = URL.createObjectURL(img);
-    }
+    let img = getFile(e);
+    tempUser.avatar = URL.createObjectURL(img);
   };
 
-  //практически дубликат функции выше
+
   const uploadWallPaper = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      let img = e.target.files[0];
-      tempWallpaper = URL.createObjectURL(img);
-    }
+    let img = getFile(e);
+    tempWallpaper = URL.createObjectURL(img);
   };
 
   return (
-    <div id="profilePage">
+    <div id="profile-view">
+      <ProfileHeader user={user} />
       <Wallpaper wallpaper={wallpaper} />
       <Avatar user={user} />
       <div className="name">{user.name}</div>

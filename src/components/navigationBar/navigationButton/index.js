@@ -1,14 +1,15 @@
 import React from "react";
-import "../navigationButton/index.css";
-// можно просто  import "./index.css";
+import "./index.css";
 
-function NavigationButton({ buttonName, buttonImage }) {
-  //юзай лучше const, а не function
+const NavigationButton = ({ buttonName, buttonImage }) => {
+
   return (
-    <div className="navigationButton">
-      {/* navigation-button */}
-      <img className="btnImg" src={buttonImage} />
-      {/* а здесь btn-img */}
+    <div className="navigation-button">
+      {buttonImage ?
+        <img className="btn-img"
+          src={buttonImage} />
+        : null
+      }
       <button>{buttonName}</button>
     </div>
   );

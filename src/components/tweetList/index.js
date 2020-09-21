@@ -1,52 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tweet from '../tweet';
 import NewTweet from '../newTweet';
-import '../tweetList/index.css';
+import './index.css';
 
-class TweetList extends React.Component {
+const TweetList = () => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            tweets: [{ id: 0, text: "First tweet" },
-            { id: 1, text: "Second tweet" }
-            ],
-            newTweet: {}
+    const [tweets, setTweets] = useState(
+        [{ id: 0, text: "First tweet" },
+        { id: 1, text: "Second tweet" }
+        ]);
+
+    const [newTweet, setNewTweet] = useState({});
+
+    const addNewTweet = () => {
+        if (Object.keys(newTweet).length) {
+            let currentTweets = [...tweets];
+            currentTweets.unshift(newTweet);
+            setTweets(currentTweets);
         }
     }
 
-    addNewTweet = () => {
-        if (Object.keys(this.state.newTweet).length) {
-            let currentTweets = [...this.state.tweets];
-            currentTweets.unshift(this.state.newTweet);
-            this.setState({ tweets: currentTweets });
-        }
+    const handleTweetText = (e) => {
+        let newTweet = { id: tweets.length + 1, text: e.target.value };
+        setNewTweet(newTweet);
     }
 
-    handleTweetText = (e) => {
-        let newTweet = { id: this.state.tweets.length + 1, text: e.target.value };
-        this.setState({ newTweet });
-    }
-
-    deleteTweet = (tweetId) => {
-        let currentTweets = [...this.state.tweets];
-        let tweetToBeDeleted = currentTweets.findIndex(t => t.id === tweetId.id);
+    const deleteTweet = (tweet) => {
+        let currentTweets = [...tweets];
+        let tweetToBeDeleted = currentTweets.findIndex(t => t.id === tweet.id);
         currentTweets.splice(tweetToBeDeleted, 1);
-        this.setState({ tweets: currentTweets });
+        setTweets(currentTweets);
     }
 
-    render() {
-        return (
-            <div className='tweet-view'>
-                <NewTweet handleTweetText={this.handleTweetText} addNewTweet={this.addNewTweet} />
-                <div className='tweet-list'>
-                    {this.state.tweets.map((t) => (
-                        <Tweet key={t.id} tweet={t} deleteTweet={this.deleteTweet} />
-                    ))}
-                </div>
+    return (
+        <div className='tweet-view'>
+            <NewTweet
+                handleTweetText={handleTweetText}
+                addNewTweet={addNewTweet} />
+            <div className='tweet-list'>
+                {tweets.map((t) => (
+                    <Tweet
+                        key={t.id}
+                        tweet={t}
+                        deleteTweet={deleteTweet} />
+                ))}
             </div>
-        )
-    }
+        </div>
+    )
+
 }
 
 export default TweetList;
