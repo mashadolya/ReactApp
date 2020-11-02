@@ -6,6 +6,7 @@ import Wallpaper from "../wallpaper";
 import getFile from '../../../utils/ElementUtils';
 import ProfileHeader from "../../profile/profileHeader";
 import "../profileInfo/index.css";
+import Input from '../../input';
 
 function ProfileInfo() {
   const [wallpaper, setWallpaper] = useState(
@@ -19,7 +20,7 @@ function ProfileInfo() {
     username: "M_Dolya",
     about: "Hello, I am Soft",
     location: "Minsk",
-    webSite: "https://",
+    webSite: "https://vk.com/id152965732",
     birthDate: "03.06.1997",
   });
 
@@ -73,6 +74,7 @@ function ProfileInfo() {
 
   return (
     <div id="profile-view">
+      <Input {... { label: "About", defaultValue: "defaultValue", maxLength: 200, handleInputChange: handleInputChange }} />
       <ProfileHeader user={user} />
       <Wallpaper wallpaper={wallpaper} />
       <Avatar user={user} />

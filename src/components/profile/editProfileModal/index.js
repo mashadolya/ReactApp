@@ -1,7 +1,11 @@
 import React from "react";
 import "../editProfileModal/index.css";
+import Input from "../../input";
 
 function EditProfileModal(props) {
+
+  const userName = props.userInfo.name;
+
   const showHideClassName = props.isShow
     ? "modal display-block"
     : "modal display-none"; // а почему это нельзя сделать непосредственно в строчке где это юзается?)
@@ -41,12 +45,12 @@ function EditProfileModal(props) {
             accept="image/jpeg,image/png,image/webp"
             onChange={uploadProfileImage}
           ></input>
-          <p>Имя</p>
-          <input
-            name="name"
-            defaultValue={props.userInfo.name}
-            onChange={handleInputChange}
-          ></input>
+
+          <Input label={"Имя"}
+            defaultValue={userName}
+            handleInputChange={handleInputChange}
+            maxLength={20} />
+
           <p>О себе</p>
           <input
             name="about"

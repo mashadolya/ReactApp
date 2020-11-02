@@ -4,7 +4,6 @@ import "./index.css";
 const Tweet = (props) => {
 
   const tweet = props.tweet;
-  const deleteTweet = props.deleteTweet;
 
   return (
     <div className="tweet">
@@ -12,8 +11,7 @@ const Tweet = (props) => {
       <div>{tweet.text}</div>
       <button
         className="delete-tweet-btn"
-        onClick={deleteTweet(tweet)
-        }      >
+        onClick={() => props.deleteTweet(tweet)}>
         Delete Tweet
         </button>
     </div>

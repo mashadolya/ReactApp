@@ -2,3 +2,25 @@
     height: 10px;
     width: 10px;
 }
+
+a{
+    padding: 2px 1px 0;
+}
+
+a:link {
+    text-decoration: none;
+    color: blue;
+    size: 2px;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }

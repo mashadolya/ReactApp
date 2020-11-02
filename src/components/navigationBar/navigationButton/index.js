@@ -7,7 +7,7 @@ const NavigationButton = ({ buttonName, buttonImage }) => {
     <div className="navigation-button">
       {buttonImage ?
         <img className="btn-img"
-          src={buttonImage} />
+          src={buttonImage} alt="btn-img" />
         : null
       }
       <button>{buttonName}</button>

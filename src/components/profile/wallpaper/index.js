@@ -9,7 +9,10 @@ const Wallpaper = (props) => {
   //все поехало если <></>(((((
   return (
     <div>
-      <img id="wallpaper" src={props.wallpaper} />
+      <img
+        id="wallpaper"
+        src={props.wallpaper}
+        alt="profile wallpapper" />
     </div>
   );
 }
