@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavigationButton from '../navigationButton'
+import NavigationButton from '../navigationButton';
 
 const Navigation = (props) => {
     return (

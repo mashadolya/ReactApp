@@ -13,14 +13,14 @@ function App() {
       { id: 1, text: "Second tweet" }
     ]);
 
-  const [newTweet, setNewTweet] = useState({});
+  const [newTweet, setNewTweet] = useState({ id: "", text: "" });
 
   const addNewTweet = () => {
     if (Object.keys(newTweet).length) {
       let currentTweets = [...tweets];
       currentTweets.unshift(newTweet);
       setTweets(currentTweets);
-      setNewTweet({});
+      setNewTweet({ id: "", text: "" });
     }
   }
 
@@ -73,6 +73,7 @@ function App() {
           <Route path="/home"
             render={() => (
               <HomePage
+                newTweet={newTweet}
                 tweets={tweets}
                 addNewTweet={addNewTweet}
                 handleTweetText={handleTweetText}

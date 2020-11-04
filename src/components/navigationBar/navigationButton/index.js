@@ -10,7 +10,7 @@ const NavigationButton = ({ buttonName, buttonImage }) => {
           src={buttonImage} alt="btn-img" />
         : null
       }
-      <button>{buttonName}</button>
+      <button className="navigation-button-btn">{buttonName}</button>
     </div>
   );
 }
