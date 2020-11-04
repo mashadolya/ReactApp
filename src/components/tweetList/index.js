@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tweet from '../tweet';
-import './index.css';
 
 const TweetList = (props) => {
 

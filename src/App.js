@@ -20,12 +20,16 @@ function App() {
       let currentTweets = [...tweets];
       currentTweets.unshift(newTweet);
       setTweets(currentTweets);
+      setNewTweet({});
     }
   }
 
   const handleTweetText = (e) => {
-    let newTweet = { id: tweets.length + 1, text: e.target.value };
-    setNewTweet(newTweet);
+    let tweetText = e.target.value;
+    if (tweetText) {
+      let newTweet = { id: tweets.length + 1, text: tweetText };
+      setNewTweet(newTweet);
+    }
   }
 
   const deleteTweet = (tweet) => {
@@ -39,23 +43,45 @@ function App() {
     <div className="app">
       <div className="app-header">
       </div>
-      <div>
-        <BrowserRouter>
+
+      <BrowserRouter>
+
+        <div className="content">
           <NavigationBar />
-          <Switch>
-            <Route path="/profile" render={() => (<ProfilePage tweets={tweets} deleteTweet={deleteTweet} />)} />
-            <Route path="/explore" component={null} />
-            <Route path="/notifications" component={null} />
-            <Route path="/messages" component={null} />
-            <Route path="/bookmarks" component={null} />
-            <Route path="/lists" component={null} />
-            <Route path="/home"
-              render={() => (<HomePage tweets={tweets} addNewTweet={addNewTweet} handleTweetText={handleTweetText} deleteTweet={deleteTweet} />
-              )} />
-          </Switch>
-        </BrowserRouter>
-        <TweetButton onClick={addNewTweet} />
-      </div>
+          <TweetButton
+            onClick={addNewTweet}
+          />
+        </div>
+
+
+        <div className="main-content">
+
+        </div>
+
+
+        <Switch>
+          <Route path="/profile" render={() => (
+            <ProfilePage
+              tweets={tweets}
+              deleteTweet={deleteTweet}
+            />)} />
+          <Route path="/explore" component={null} />
+          <Route path="/notifications" component={null} />
+          <Route path="/messages" component={null} />
+          <Route path="/bookmarks" component={null} />
+          <Route path="/lists" component={null} />
+          <Route path="/home"
+            render={() => (
+              <HomePage
+                tweets={tweets}
+                addNewTweet={addNewTweet}
+                handleTweetText={handleTweetText}
+                deleteTweet={deleteTweet}
+              />
+            )} />
+        </Switch>
+
+      </BrowserRouter>
     </div>
   );
 }

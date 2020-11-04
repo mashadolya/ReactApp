@@ -1,5 +1,4 @@
 import React from "react";
-import "../wallpaper/index.css";
 
 const Wallpaper = (props) => {
   //лайфхак на будущее. Когда тебе нужно просто вставить единого родителя как у тебя здесь див, можно воспользоваться React.Fragment

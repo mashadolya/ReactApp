@@ -8,8 +8,8 @@ const ProfilePage = (props) => {
     const deleteTweet = props.deleteTweet;
 
     return (
-        <div>
-            <ProfileInfo tweets={tweets} />
+        <div className="primary-content">
+            <ProfileInfo />
             <TweetList
                 tweets={tweets}
                 deleteTweet={deleteTweet} />

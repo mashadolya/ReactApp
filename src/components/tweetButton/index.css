@@ -1,3 +1,9 @@
 .tweet-button{
     background-color:  rgb(29, 161, 242);
+    color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    position : absolute;
+    left:0;
+    display: block;
 }

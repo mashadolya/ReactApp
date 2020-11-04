@@ -11,9 +11,8 @@ const HomePage = (props) => {
     const deleteTweet = props.deleteTweet;
 
 
-
     return (
-        <div className="home-page">
+        <div className="primary-content">
             <NewTweet
                 handleTweetText={handleTweetText}
                 addNewTweet={addNewTweet}

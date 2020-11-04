@@ -6,7 +6,6 @@ import Wallpaper from "../wallpaper";
 import getFile from '../../../utils/ElementUtils';
 import ProfileHeader from "../../profile/profileHeader";
 import "../profileInfo/index.css";
-import Input from '../../input';
 
 function ProfileInfo() {
   const [wallpaper, setWallpaper] = useState(
@@ -73,8 +72,7 @@ function ProfileInfo() {
   };
 
   return (
-    <div id="profile-view">
-      <Input {... { label: "About", defaultValue: "defaultValue", maxLength: 200, handleInputChange: handleInputChange }} />
+    <div>
       <ProfileHeader user={user} />
       <Wallpaper wallpaper={wallpaper} />
       <Avatar user={user} />
