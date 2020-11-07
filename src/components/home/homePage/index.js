@@ -1,30 +1,16 @@
 import React from "react";
-
-import NewTweet from "../../newTweet";
+import AddTweet from "../../addTweet";
 import TweetList from "../../tweetList";
 
 const HomePage = (props) => {
+  const { tweets, addNewTweet, deleteTweet } = props;
 
-    const tweets = props.tweets;
-    const newTweet = props.newTweet;
-    const handleTweetText = props.handleTweetText;
-    const addNewTweet = props.addNewTweet;
-    const deleteTweet = props.deleteTweet;
-
-
-    return (
-        <div className="primary-content">
-            <NewTweet
-                newTweet={newTweet}
-                handleTweetText={handleTweetText}
-                addNewTweet={addNewTweet}
-            />
-            <TweetList
-                tweets={tweets}
-                deleteTweet={deleteTweet}
-            />
-        </div>
-    )
-}
+  return (
+    <div className="primary-content">
+      <AddTweet submitTweet={addNewTweet}></AddTweet>
+      <TweetList tweets={tweets} deleteTweet={deleteTweet} />
+    </div>
+  );
+};
 
 export default HomePage;

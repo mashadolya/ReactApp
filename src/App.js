@@ -11,30 +11,20 @@ function App() {
     { id: 1, text: "Second tweet" },
   ]);
 
-  const [newTweet, setNewTweet] = useState({ id: "", text: "" });
-
-  const addNewTweet = () => {
-    if (Object.keys(newTweet).length) {
-      let currentTweets = [...tweets];
-      currentTweets.unshift(newTweet);
-      setTweets(currentTweets);
-      setNewTweet({ id: "", text: "" });
-    }
+  const addNewTweet = (text) => {
+    const newTweet = { id: tweets.length + 1, text };
+    const newTweets = [...tweets];
+    newTweets.unshift(newTweet);
+    setTweets(newTweets);
   };
 
-  const handleTweetText = (e) => {
-    let tweetText = e.target.value;
-    if (tweetText) {
-      let newTweet = { id: tweets.length + 1, text: tweetText };
-      setNewTweet(newTweet);
-    }
-  };
-
-  const deleteTweet = (tweet) => {
+  const deleteTweet = (tweetId) => {
     let currentTweets = [...tweets];
-    let tweetToBeDeleted = currentTweets.findIndex((t) => t.id === tweet.id);
-    currentTweets.splice(tweetToBeDeleted, 1);
-    setTweets(currentTweets);
+    let deleteTweetIndex = currentTweets.findIndex((t) => t.id === tweetId);
+    if (deleteTweetIndex > -1) {
+      currentTweets.splice(deleteTweetIndex, 1);
+      setTweets(currentTweets);
+    }
   };
 
   return (
@@ -59,10 +49,8 @@ function App() {
             path="/home"
             render={() => (
               <HomePage
-                newTweet={newTweet}
                 tweets={tweets}
                 addNewTweet={addNewTweet}
-                handleTweetText={handleTweetText}
                 deleteTweet={deleteTweet}
               />
             )}

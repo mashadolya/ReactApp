@@ -5,7 +5,7 @@ const TweetButton = (props) => {
   const { onClick } = props;
   return (
     <button className="tweet-button" onClick={onClick}>
-      Твитнуть
+      Tweet
     </button>
   );
 };

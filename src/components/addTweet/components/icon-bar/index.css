@@ -1,0 +1,25 @@
+.icon-bar {
+  display: flex;
+}
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.icon-container:hover {
+  background-color: rgba(29, 161, 242, 1);
+}
+
+.icon {
+  height: 22px;
+  width: 22px;
+}
+
+.icon-container:not(:last-child) {
+  margin-right: 8px;
+}
