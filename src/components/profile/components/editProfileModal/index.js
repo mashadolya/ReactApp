@@ -1,9 +1,8 @@
 import React from "react";
 import "../editProfileModal/index.css";
-import Input from "../../input";
+import Input from "../../../input";
 
 function EditProfileModal(props) {
-
   const userName = props.userInfo.name;
 
   const showHideClassName = props.isShow
@@ -46,10 +45,12 @@ function EditProfileModal(props) {
             onChange={uploadProfileImage}
           ></input>
 
-          <Input label={"Имя"}
+          <Input
+            label={"Имя"}
             defaultValue={userName}
             handleInputChange={handleInputChange}
-            maxLength={20} />
+            maxLength={20}
+          />
 
           <p>О себе</p>
           <input

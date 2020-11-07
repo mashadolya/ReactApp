@@ -3,29 +3,37 @@
   width: 20px;
 }
 
-.navigation-button{
-  color: white;
-  width: 100px;
-  height: 10%;
-  border: 1px solid black;
-  border-radius: 25px;
-  position : relative;
-  left:0;
-  display: block;
+.navigation-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  max-width: 200px;
+  width: 100%;
   margin-bottom: 1%;
   margin-top: 1%;
+  border-radius: 25px;
+  color: white;
 }
 
-.navigation-button:hover {background-color: rgba(29,161,242,1.00)}
+.navigation-button:hover {
+  background-color: rgba(29, 161, 242, 1);
+}
 
-.navigation-button-btn{
-  background-color:rgb(21, 32, 43);
+.navigation-button {
+  background-color: transparent;
   border: none;
   color: white;
   text-align: center;
   text-decoration: none;
-  position : absolute;
+  position: absolute;
   font-size: 20px;
 }
 
-.navigation-button-btn:hover {background-color: rgba(29,161,242,1.00)}
+.navigation-container:hover {
+  background-color: rgba(29, 161, 242, 1);
+}
+.text {
+  margin-left: 10px;
+}

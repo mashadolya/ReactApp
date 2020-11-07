@@ -3,8 +3,8 @@ import Avatar from "../avatar";
 import UserProfileItems from "../userProfileItems";
 import EditProfileModal from "../editProfileModal";
 import Wallpaper from "../wallpaper";
-import getFile from '../../../utils/ElementUtils';
-import ProfileHeader from "../../profile/profileHeader";
+import getFile from "../../../../utils/ElementUtils";
+import ProfileHeader from "../profileHeader";
 import "../profileInfo/index.css";
 
 function ProfileInfo() {
@@ -65,14 +65,13 @@ function ProfileInfo() {
     tempUser.avatar = URL.createObjectURL(img);
   };
 
-
   const uploadWallPaper = (e) => {
     let img = getFile(e);
     tempWallpaper = URL.createObjectURL(img);
   };
 
   return (
-    <div>
+    <>
       <ProfileHeader user={user} />
       <Wallpaper wallpaper={wallpaper} />
       <Avatar user={user} />
@@ -95,7 +94,7 @@ function ProfileInfo() {
           uploadWallpaper={uploadWallPaper}
         />
       ) : null}
-    </div>
+    </>
   );
 }
 
