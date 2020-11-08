@@ -1,0 +1,30 @@
+.tweeter-input-form{
+    position: relative;
+    padding-top: 1.5rem;
+    background-color: rgb(61, 84, 102);
+    padding: 1rem;
+    border-bottom: 2px solid blanchedalmond;
+    display: block;
+    color: white;
+    padding: 3px;
+}
+
+.tweeter-input:active{
+    position: relative;
+    padding-top: 1.5rem;
+    background-color: rgb(61, 84, 102);
+    padding: 1rem;
+    border-bottom: 2px solid blue;
+    display: block;
+    color: white;
+    padding: 3px;
+}
+
+.tweeter-input-default{
+    outline: none;
+    border: none;
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    background-color: rgb(61, 84, 102);
+}

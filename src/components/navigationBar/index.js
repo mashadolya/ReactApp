@@ -16,7 +16,6 @@ function NavigationBar() {
 
   return (
     <div className="navigation-bar">
-
       <Navigation linkTo={"/home"} btnName={"Главная"} btnImg={HomeSvg} />
       <Navigation linkTo={"/explore"} btnName={"Поиск"} btnImg={SearchSvg} />
       <Navigation linkTo={"/notifications"} btnName={"Уведомления"} btnImg={NotificationSvg} />

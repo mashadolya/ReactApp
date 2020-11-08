@@ -1,15 +1,22 @@
 #editModal {
+  border-radius: 25px;
+  border: 2px solid black;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: slategrey;
+  background-color: rgb(21, 32, 43);
+  text-decoration-color : white;
   }
 
   .modal-body {
     padding: 20px;
-    background-color: lightblue;
+
     color: #000;
+}
+
+input{
+  background-color: rgb(61, 84, 102);
 }
     
   .display-block {

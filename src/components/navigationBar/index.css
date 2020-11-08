@@ -1,5 +1,7 @@
-.navigation-bar{
-    position : absolute;
-    height: 100%;
-    left:0;
+.navigation-bar {
+  position: absolute;
+  left: 0;
+  max-width: 214px;
+  width: 100%;
+  padding: 25px;
 }
