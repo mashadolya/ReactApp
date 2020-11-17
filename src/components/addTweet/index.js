@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TweetButton from "../tweetButton";
+import BlueButton from "../blueButton";
 import IconBar from "./components/icon-bar";
 import "./index.css";
 
@@ -30,7 +30,7 @@ const AddTweet = (props) => {
           value={value}
         ></textarea>
         <IconBar></IconBar>
-        <TweetButton onClick={onSubmit}></TweetButton>
+        <BlueButton btnText={"Tweet"} onClick={onSubmit}></BlueButton>
       </div>
     </div>
   );

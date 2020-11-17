@@ -1,6 +1,6 @@
 import React from "react";
-import AddTweet from "../../addTweet";
-import TweetList from "../../tweetList";
+import AddTweet from "../addTweet";
+import TweetList from "../tweetList";
 
 const HomePage = (props) => {
   const { tweets, addNewTweet, deleteTweet } = props;

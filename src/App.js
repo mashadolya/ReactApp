@@ -1,15 +1,37 @@
 import React, { useState } from "react";
 import NavigationBar from "./components/navigationBar";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import HomePage from "./components/home/homePage";
+import HomePage from "./components/home";
 import ProfilePage from "./components/profile";
-import TweetButton from "./components/tweetButton";
+import BlueButton from "./components/blueButton";
+import LoginPage from "./pages/loginPage";
 
 function App() {
+
+  const [isLogged, setIslogged] = useState(false);
+
   const [tweets, setTweets] = useState([
     { id: 0, text: "First tweet" },
     { id: 1, text: "Second tweet" },
   ]);
+
+  const [user, setUser] = useState({
+    avatar:
+      "https://i.pinimg.com/originals/b5/9f/87/b59f8728480231a869b262c5df1978d9.jpg",
+    name: "Maria",
+    username: "M_Dolya",
+    password: "12345",
+    about: "Hello, I am Soft",
+    location: "Minsk",
+    webSite: "https://vk.com/id152965732",
+    birthDate: "03.06.1997",
+  });
+
+  const [tempUser, setTempUser] = useState({});
+
+  const updateUserInfo = (user) => {
+    setUser(tempUser);
+  };
 
   const addNewTweet = (text) => {
     const newTweet = { id: tweets.length + 1, text };
@@ -27,36 +49,63 @@ function App() {
     }
   };
 
+  const handleUserInfoChange = (changedUser) => {
+    setTempUser(changedUser);
+  }
+
+  const logIn = (isLogged) => {
+    isLogged
+      ? setIslogged(true)
+      : setIslogged(false)
+  }
+
   return (
     <div className="app">
-      <BrowserRouter>
-        <NavigationBar />
-        <TweetButton onClick={addNewTweet} />
 
-        <Switch>
-          <Route
-            path="/profile"
-            render={() => (
-              <ProfilePage tweets={tweets} deleteTweet={deleteTweet} />
-            )}
-          />
-          <Route path="/explore" component={null} />
-          <Route path="/notifications" component={null} />
-          <Route path="/messages" component={null} />
-          <Route path="/bookmarks" component={null} />
-          <Route path="/lists" component={null} />
-          <Route
-            path="/home"
-            render={() => (
-              <HomePage
-                tweets={tweets}
-                addNewTweet={addNewTweet}
-                deleteTweet={deleteTweet}
-              />
-            )}
-          />
-        </Switch>
-      </BrowserRouter>
+      {isLogged ?
+
+        <BrowserRouter>
+          <NavigationBar />
+
+          <BlueButton
+            btnText={"Tweet"}
+            onClick={addNewTweet} />
+
+          <Switch>
+            <Route
+              path="/profile"
+              render={() => (
+                <ProfilePage
+                  user={user}
+                  tweets={tweets}
+                  deleteTweet={deleteTweet}
+                  updateUserInfo={updateUserInfo}
+                  handleUserInfoChange={handleUserInfoChange} />
+              )}
+            />
+            <Route path="/explore" component={null} />
+            <Route path="/notifications" component={null} />
+            <Route path="/messages" component={null} />
+            <Route path="/bookmarks" component={null} />
+            <Route path="/lists" component={null} />
+            <Route
+              path="/home"
+              render={() => (
+                <HomePage
+                  tweets={tweets}
+                  addNewTweet={addNewTweet}
+                  deleteTweet={deleteTweet}
+                />
+              )}
+            />
+          </Switch>
+        </BrowserRouter>
+        : <LoginPage
+          username={user.username}
+          password={user.password}
+          handleLogin={logIn}
+        />
+      }
     </div>
   );
 }

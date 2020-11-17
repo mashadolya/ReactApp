@@ -3,13 +3,23 @@ import TweetList from "../tweetList";
 import ProfileInfo from "./components/profileInfo";
 
 const ProfilePage = (props) => {
-  const tweets = props.tweets;
-  const deleteTweet = props.deleteTweet;
+
+  const { user, tweets, deleteTweet, updateUserInfo, handleUserInfoChange } = props;
 
   return (
     <div className="primary-content">
-      <ProfileInfo />
-      <TweetList tweets={tweets} deleteTweet={deleteTweet} />
+
+      <ProfileInfo
+        user={user}
+        updateUserInfo={updateUserInfo}
+        handleUserInfoChange={handleUserInfoChange}
+      />
+
+      <TweetList
+        tweets={tweets}
+        deleteTweet={deleteTweet}
+      />
+
     </div>
   );
 };

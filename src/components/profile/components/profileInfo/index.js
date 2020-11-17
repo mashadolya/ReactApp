@@ -7,34 +7,18 @@ import getFile from "../../../../utils/ElementUtils";
 import ProfileHeader from "../profileHeader";
 import "../profileInfo/index.css";
 
-function ProfileInfo() {
+const ProfileInfo = (props) => {
+
+  const { user, updateUserInfo, handleUserInfoChange } = props;
+
   const [wallpaper, setWallpaper] = useState(
     "https://c4.wallpaperflare.com/wallpaper/246/739/689/digital-digital-art-artwork-illustration-abstract-hd-wallpaper-preview.jpg"
   );
 
-  const [user, setUser] = useState({
-    avatar:
-      "https://i.pinimg.com/originals/b5/9f/87/b59f8728480231a869b262c5df1978d9.jpg",
-    name: "Maria",
-    username: "M_Dolya",
-    about: "Hello, I am Soft",
-    location: "Minsk",
-    webSite: "https://vk.com/id152965732",
-    birthDate: "03.06.1997",
-  });
+  let tempUser;
 
   //никаких переменных с данными. Можно хранить только конфиги какие-то
   let tempWallpaper = wallpaper;
-
-  let tempUser = {
-    avatar: user.avatar,
-    name: user.name,
-    username: user.username,
-    about: user.about,
-    location: user.location,
-    webSite: user.webSite,
-    birthDate: user.birthDate,
-  };
 
   const [isShowModal, setIsShowModal] = useState(false);
 
@@ -45,7 +29,7 @@ function ProfileInfo() {
 
   const save = () => {
     setIsShowModal(false);
-    setUser(tempUser);
+    updateUserInfo(tempUser);
     setWallpaper(tempWallpaper);
   };
 
@@ -57,7 +41,9 @@ function ProfileInfo() {
   const handleInputChange = (e) => {
     const target = e.target.value;
     const propName = e.target.name;
+    tempUser = { ...user };
     tempUser[propName] = target;
+    handleUserInfoChange(tempUser);
   };
 
   const uploadProfileImage = (e) => {
@@ -88,8 +74,8 @@ function ProfileInfo() {
           isShow={isShowModal}
           handleClose={closeModal}
           handleSave={save}
-          userInfo={user}
-          handleInputChange={handleInputChange}
+          user={user}
+          handleChange={handleInputChange}
           uploadProfileImage={uploadProfileImage}
           uploadWallpaper={uploadWallPaper}
         />

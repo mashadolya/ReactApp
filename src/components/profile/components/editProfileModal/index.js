@@ -1,78 +1,90 @@
 import React from "react";
 import "../editProfileModal/index.css";
-import Input from "../../../input";
+import ModalHeader from "./components/header";
 
-function EditProfileModal(props) {
-  const userName = props.userInfo.name;
+import Input from "./components/input";
 
-  const showHideClassName = props.isShow
-    ? "modal display-block"
-    : "modal display-none"; // а почему это нельзя сделать непосредственно в строчке где это юзается?)
+const EditProfileModal = (props) => {
+  const { isShow, user, handleChange, handleClose, handleSave } = props;
 
   const handleInputChange = (e) => {
-    props.handleInputChange(e);
+    handleChange(e);
   };
 
   const uploadProfileImage = (e) => {
-    props.uploadProfileImage(e);
+    uploadProfileImage(e);
   };
 
   const uploadWallpaper = (e) => {
-    props.uploadWallpaper(e);
+    uploadWallpaper(e);
   };
 
   return (
-    <div id="editModal" className={showHideClassName}>
-      <div className="modal-dialog">
-        <div className="modal-header">
-          <h2 className="modal-title">
-            <button onClick={props.handleClose}>Close</button>
-            Изменить профиль
-            <button onClick={props.handleSave}>Сохранить</button>
-          </h2>
-        </div>
-        <div className="modal-body">
-          <p>Новые обои</p>
-          <input
-            type="file"
-            accept="image/jpeg,image/png,image/webp"
-            onChange={uploadWallpaper}
-          ></input>
-          <p>Новая ава</p>
-          <input
-            type="file"
-            accept="image/jpeg,image/png,image/webp"
-            onChange={uploadProfileImage}
-          ></input>
+    <div className="edit-nmodal-container">
 
-          <Input
-            label={"Имя"}
-            defaultValue={userName}
-            handleInputChange={handleInputChange}
-            maxLength={20}
+      <div className=
+        {isShow
+          ? "modal display-block"
+          : "modal display-none"}>
+        <div className="modal-dialog">
+
+          <ModalHeader
+            close={handleClose}
+            save={handleSave}
           />
 
-          <p>О себе</p>
-          <input
-            name="about"
-            defaultValue={props.userInfo.about}
-            onChange={handleInputChange}
-          ></input>
-          <p>Местоположение</p>
-          <input
-            name="location"
-            defaultValue={props.userInfo.location}
-            onChange={handleInputChange}
-          ></input>
-          <p>Веб сайт</p>
-          <input
-            name="webSite"
-            defaultValue={props.userInfo.webSite}
-            onChange={handleInputChange}
-          ></input>
+          <div className="modal-body">
+            <p>Новые обои</p>
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              onChange={uploadWallpaper}
+            ></input>
+            <p>Новая ава</p>
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              onChange={uploadProfileImage}
+            ></input>
+
+            <Input
+              propName="name"
+              title={"Имя"}
+              text={user.name}
+              onChange={handleInputChange}
+              maxLength={50}
+            />
+
+            <Input
+              propName="about"
+              title="about"
+              text={user.about}
+              onChange={handleInputChange}
+              maxLength={160}
+            ></Input>
+
+            <Input
+              propName="location"
+              title="location"
+              text={user.location}
+              onChange={handleInputChange}
+              maxLength={30}
+            />
+
+            <Input
+              propName="webSite"
+              title="webSite"
+              text={user.webSite}
+              onChange={handleInputChange}
+              maxLength={100}
+            />
+          </div>
         </div>
       </div>
+
     </div>
+
+
   );
 }
 

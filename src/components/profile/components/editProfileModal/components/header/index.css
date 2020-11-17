@@ -1,0 +1,11 @@
+.modal-header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-left: 10 px;
+    padding-right: 10 px;
+  }
+
+  .button-save{
+   
+  }

@@ -1,0 +1,26 @@
+.input-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  max-width: 583;
+   width: 100%;
+   color: white;
+   margin: 10px;
+   background-color: rgb(25, 39, 52);
+   border-bottom: 1px solid gray;
+}
+
+.input-container input{
+    position: relative;
+    outline: none;
+    color: white;
+    background-color: rgb(25, 39, 52);;
+    max-width: 530px;
+    width: 100%;
+    border: none;
+}
+
+.length-counter{
+    position :absolute;
+    right: 0;
+}
