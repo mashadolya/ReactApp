@@ -3,6 +3,7 @@ import BlueButton from "../../components/blueButton";
 import Input from "../../components/profile/components/editProfileModal/components/input";
 import './index.css';
 import TwitterLogo from "../../assets/images/svg/twitter.svg";
+import ErrorHeader from "./components/errorHeader";
 
 const LoginPage = (props) => {
 
@@ -13,13 +14,27 @@ const LoginPage = (props) => {
         password: ""
     });
 
+    const [isDesabled, setIsDesabled] = useState(false);
+
     const handleInputChange = (e) => {
         var value = e.target.value;
         const propName = e.target.name;
         var currentLoginData = { ...loginData };
         currentLoginData[propName] = value;
         setLoginData(currentLoginData);
+        checkIsDesabled(currentLoginData);
     }
+
+
+    const checkIsDesabled = (loginData) => {
+        if ((loginData.password) && (loginData.username)) {
+            setIsDesabled(true);
+        }
+        if (!(loginData.password) && !(loginData.username)) {
+            setIsDesabled(false);
+        }
+    }
+
 
     const checkCredentials = () => {
         var inputUsername = loginData.username.toLowerCase();
@@ -46,6 +61,9 @@ const LoginPage = (props) => {
 
             <h1>Log in to Twitter</h1>
 
+
+            <ErrorHeader />
+
             <Input
                 propName="username"
                 title="Phone, email, or username"
@@ -63,11 +81,13 @@ const LoginPage = (props) => {
             <BlueButton
                 btnText={"Log in"}
                 onClick={isLogged}
+                isDesabled={isDesabled}
             />
 
         </div>
     )
 };
+
 
 export default LoginPage;
 

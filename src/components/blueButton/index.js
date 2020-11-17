@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 const BlueButton = (props) => {
-  const { btnText, onClick } = props;
+  const { btnText, onClick, isDesabled } = props;
+
+
   return (
-    <button className="blue-button" onClick={onClick}>
+    <button className="blue-button" onClick={onClick} disabled={!isDesabled}>
       {btnText}
     </button>
   );
