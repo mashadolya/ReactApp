@@ -7,12 +7,14 @@ import ErrorHeader from "./components/errorHeader";
 
 const LoginPage = (props) => {
 
-    const { username, password, handleLogin } = props;
+    const { username, password, handleLogin, isShowErrorHeader } = props;
 
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""
     });
+
+    const [isErrorHeaderPresents, setIsErrorHeaderPresents] = useState(false);
 
     const [isDesabled, setIsDesabled] = useState(false);
 
@@ -50,19 +52,26 @@ const LoginPage = (props) => {
     const isLogged = () => {
         let isCredentialsCorrect = checkCredentials();
         handleLogin(isCredentialsCorrect);
+        if (isShowErrorHeader) {
+            setIsErrorHeaderPresents(true);
+        } else {
+            setIsErrorHeaderPresents(false);
+        }
     }
 
     return (
         <div className="login-form-container">
 
             <div className="twitter-icon-container">
-                <img src={TwitterLogo} />
+                <img src={TwitterLogo} alt="twiter-logo" />
             </div>
 
             <h1>Log in to Twitter</h1>
 
 
-            <ErrorHeader />
+            { isErrorHeaderPresents ?
+                <ErrorHeader />
+                : null}
 
             <Input
                 propName="username"

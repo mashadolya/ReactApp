@@ -53,10 +53,16 @@ function App() {
     setTempUser(changedUser);
   }
 
+  const [isShowErrorHeader, setIsShowErrorHeader] = useState(false);
+
   const logIn = (isLogged) => {
-    isLogged
-      ? setIslogged(true)
-      : setIslogged(false)
+    if (isLogged) {
+      setIslogged(true)
+    }
+    else {
+      setIslogged(false);
+      setIsShowErrorHeader(true);
+    }
   }
 
   return (
@@ -104,6 +110,7 @@ function App() {
           username={user.username}
           password={user.password}
           handleLogin={logIn}
+          isShowErrorHeader={isShowErrorHeader}
         />
       }
     </div>
