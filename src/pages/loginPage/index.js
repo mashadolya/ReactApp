@@ -51,11 +51,10 @@ const LoginPage = (props) => {
 
     const isLogged = () => {
         let isCredentialsCorrect = checkCredentials();
-        handleLogin(isCredentialsCorrect);
-        if (isShowErrorHeader) {
-            setIsErrorHeaderPresents(true);
+        if (isCredentialsCorrect) {
+            handleLogin(isCredentialsCorrect);
         } else {
-            setIsErrorHeaderPresents(false);
+            setIsErrorHeaderPresents(true);
         }
     }
 
@@ -69,9 +68,10 @@ const LoginPage = (props) => {
             <h1>Log in to Twitter</h1>
 
 
-            { isErrorHeaderPresents ?
-                <ErrorHeader />
-                : null}
+            {
+                isErrorHeaderPresents ?
+                    <ErrorHeader />
+                    : null}
 
             <Input
                 propName="username"
