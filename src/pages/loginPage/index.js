@@ -76,14 +76,14 @@ const LoginPage = (props) => {
             <Input
                 propName="username"
                 title="Phone, email, or username"
-                text={""}
+                text={loginData.username}
                 onChange={handleInputChange}
             />
 
             <Input
                 propName="password"
                 title="Password"
-                text={""}
+                text={loginData.username}
                 onChange={handleInputChange}
             />
 

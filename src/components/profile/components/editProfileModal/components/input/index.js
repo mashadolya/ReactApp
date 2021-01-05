@@ -14,7 +14,7 @@ const Input = (props) => {
             {maxLength
                 ?
                 <div>
-                    <input name={propName} defaultValue={text} onChange={handlInputChange} maxLength={maxLength} />
+                    <input name={propName} defaultValue={text || ""} onChange={handlInputChange} maxLength={maxLength} />
                     <div className="bottom-header">
                         <div className="length-counter">{maxLength}</div>
                     </div>
